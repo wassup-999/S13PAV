@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
     public float DetectSize = 0.1f;
     public float Distance = 0.1f;
     private bool isGrounded;
+    
 
     public Transform FeetReference;
 
@@ -36,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         
         return false;
 
-    }
-
-    public bool IsGrounded => isGrounded;
+    }       
+    public bool IsGrounded => isGrounded;  
+    
 }

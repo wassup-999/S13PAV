@@ -9,9 +9,8 @@ public class PlayerAnimation : MonoBehaviour
 {
     public Animator controller;
     public SpriteRenderer sprite;
-
     public bool IsMoving;
-
+    
     private void Awake()
     {
         controller = GetComponent<Animator>();
@@ -19,16 +18,20 @@ public class PlayerAnimation : MonoBehaviour
     }
     void Start()
     {
-        PlayerController.Instance.
-            InputManager.OnMoveChange
-            += SetMoveAnimation;
-
-        PlayerController.Instance.
-            InputManager.OnJumpPerformed
-            += SetJumpAnimation;
+        PlayerController.Instance.InputManager.OnMoveChange += SetMoveAnimation;
+        PlayerController.Instance.InputManager.OnJumpPerformed += SetJumpAnimation;
+        PlayerController.Instance.InputManager.OnAttackPerformed += SetAttackAnimation;
     }
+
+    private void SetAttackAnimation()
+    {
+        
+        
+    }
+
     private void Update()
     {
+        SetAttackAnimation();
         SetGroundedState();
     }
     public void SetGroundedState()
@@ -58,6 +61,7 @@ public class PlayerAnimation : MonoBehaviour
             sprite.flipX = false;
     }
 
+    
   
 
 

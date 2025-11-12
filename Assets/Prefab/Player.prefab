@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8ef64eda31b124bab4eb8df818961d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAttack: 0
 --- !u!114 &7538989428564462321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DetectSize: 2
+  Distance: 0.1
   FeetReference: {fileID: 3427860865297996481}
 --- !u!1 &6296566369176582063
 GameObject:
