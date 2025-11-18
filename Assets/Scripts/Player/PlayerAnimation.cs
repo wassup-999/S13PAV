@@ -1,6 +1,8 @@
 using System;
 
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 
 
 [RequireComponent(typeof(Animator))]
@@ -11,6 +13,7 @@ public class PlayerAnimation : MonoBehaviour
     public SpriteRenderer sprite;
     public bool IsMoving;
     
+
     private void Awake()
     {
         controller = GetComponent<Animator>();
@@ -21,16 +24,16 @@ public class PlayerAnimation : MonoBehaviour
         PlayerController.Instance.InputManager.OnMoveChange += SetMoveAnimation;
         PlayerController.Instance.InputManager.OnJumpPerformed += SetJumpAnimation;
         PlayerController.Instance.InputManager.OnAttackPerformed += SetAttackAnimation;
+        PlayerController.Instance.InputManager.OnDead += SetDeadAnimation;
     }
 
-    private void SetAttackAnimation()
-    {
-        
-        
-    }
+    
+
+    
 
     private void Update()
     {
+        
         SetAttackAnimation();
         SetGroundedState();
     }
@@ -60,9 +63,16 @@ public class PlayerAnimation : MonoBehaviour
         if(vector.x > 0)
             sprite.flipX = false;
     }
-
     
-  
+    private void SetDeadAnimation()
+    {
+        controller.SetBool("isDead", true);
+    }
+    private void SetAttackAnimation()
+    {
+        bool isAttacking = PlayerController.Instance.InputManager.isAttack;
+        controller.SetBool("isAttack", isAttacking );
+    }
 
 
 }
