@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         PlayerController.Instance.InputManager.OnJumpPerformed += Jump;
+        SoundManager.Instance.PlaySound("JumpSFX", 10);
     }
 
    
